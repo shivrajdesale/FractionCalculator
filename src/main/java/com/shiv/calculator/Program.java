@@ -3,6 +3,7 @@ package com.shiv.calculator;
 /**
  * The Program class implements an application that reads operations on fractions string from the standard input
  * and prints fractional result to the standard output.
+ * @author Shivraj Desale
  */
 
 public class Program {
