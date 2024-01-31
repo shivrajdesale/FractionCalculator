@@ -1,4 +1,4 @@
-package com.shiv.calculator;
+package com.shiv.calculator.util;
 
 /**
  * General Util

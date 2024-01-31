@@ -1,7 +1,6 @@
-package com.shiv.calculator;
+package com.shiv.calculator.util;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import com.shiv.calculator.util.Util;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

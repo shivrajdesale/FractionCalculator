@@ -1,6 +1,6 @@
 package com.shiv.calculator.interpreter;
 
-import com.shiv.calculator.Util;
+import com.shiv.calculator.util.Util;
 import com.shiv.calculator.exception.InvalidInputException;
 import com.shiv.calculator.model.FractionalExpression;
 import com.shiv.calculator.model.FractionalNumber;
@@ -46,7 +46,6 @@ public class FractionalExpressionInterpreter {
             d = Long.parseLong(fParts[1]);
             n = Long.parseLong(operandParts[0]) * d + Long.parseLong(fParts[0]);
         }
-        long gcd = Util.getGCD(n, d);
-        return new FractionalNumber(n/gcd, d/gcd);
+        return new FractionalNumber(n, d);
     }
 }

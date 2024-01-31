@@ -1,6 +1,6 @@
 package com.shiv.calculator.model;
 
-import com.shiv.calculator.Util;
+import com.shiv.calculator.util.Util;
 
 /**
  * public class {@link FractionalNumber}
