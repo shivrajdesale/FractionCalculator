@@ -6,29 +6,29 @@ package com.shiv.calculator.model;
  * @author Shivraj Desale
  */
 public class FractionalExpression {
-    private final Operator operator;
+    private final String operator;
     private final FractionalNumber leftOperand;
     private final FractionalNumber rightOperand;
 
     /**
      * Constructor for class  {@link FractionalExpression}
-     * @param operator {@link Operator}
+     * @param operator {@link String}
      *        - operator to perform operation on operands
      * @param leftOperand {@link FractionalNumber}
      *        - Left Operand to perform operation
      * @param rightOperand {@link FractionalNumber}
      *        - Right Operand to perform operation
      */
-    public FractionalExpression(Operator operator, FractionalNumber leftOperand, FractionalNumber rightOperand) {
+    public FractionalExpression(String operator, FractionalNumber leftOperand, FractionalNumber rightOperand) {
         this.operator = operator;
         this.leftOperand = leftOperand;
         this.rightOperand = rightOperand;
     }
 
     /**
-     * @return operator {@link Operator}
+     * @return operator {@link String}
      */
-    public Operator getOperator() {
+    public String getOperator() {
         return operator;
     }
 

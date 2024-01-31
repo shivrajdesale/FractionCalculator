@@ -1,5 +1,7 @@
 package com.shiv.calculator.model;
 
+import com.shiv.calculator.Util;
+
 /**
  * public class {@link FractionalNumber}
  * class to represent the Fraction Numbers in form of numerator and denominator
@@ -9,6 +11,8 @@ public class FractionalNumber {
     private final long numerator;
 
     private final long denominator;
+
+    private final String representation;
 
     /**
      * Constructor for class  {@link FractionalExpression}
@@ -20,6 +24,28 @@ public class FractionalNumber {
     public FractionalNumber(long numerator, long denominator){
         this.numerator = numerator;
         this.denominator = denominator;
+        if(numerator == 0){
+            this.representation = "0";
+        }else{
+            long gcd = Util.getGCD(numerator, denominator);
+            long n = numerator / gcd;
+            long d = denominator / gcd;
+            long quotient = n / d;
+            long remainder = n % d;
+            remainder = quotient < 0 && remainder < 0 ? Math.abs(remainder) : remainder;
+            StringBuilder builder = new StringBuilder();
+            if(quotient != 0) {
+                builder.append(quotient);
+                if(remainder != 0) {
+                    builder.append("&");
+                }
+            }
+            if(remainder != 0) {
+                builder.append(remainder).append("/").append(d);
+            }
+            this.representation = builder.toString();
+        }
+
     }
 
     /**
@@ -34,5 +60,10 @@ public class FractionalNumber {
      */
     public long getDenominator() {
         return denominator;
+    }
+
+    @Override
+    public String toString() {
+        return representation;
     }
 }
