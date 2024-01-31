@@ -1,10 +1,19 @@
 package com.shiv.calculator.util;
 
 /**
- * General Util
+ * public class Util
+ * General Util class
+ * @author Shivraj Desale
  */
 public class Util {
-	
+
+	/**
+	 * Method to calculate GCD on long numbers
+	 * @param n1 - first long number
+	 * @param n2 - second long number
+	 * @return result - gcd of two long numbers
+	 *
+	 */
 	public static long getGCD(long n1, long n2) {
 		long gcd = 1; n1 = Math.abs(n1); n2 = Math.abs(n2);
 		
