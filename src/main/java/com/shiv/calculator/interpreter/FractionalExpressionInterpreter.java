@@ -1,6 +1,7 @@
 package com.shiv.calculator.interpreter;
 
 import com.shiv.calculator.Util;
+import com.shiv.calculator.exception.InvalidInputException;
 import com.shiv.calculator.model.FractionalExpression;
 import com.shiv.calculator.model.FractionalNumber;
 
@@ -11,19 +12,19 @@ public class FractionalExpressionInterpreter {
 
     private final List<String> operatorList = Arrays.asList("+", "-", "*", "/");
     private final Pattern pattern = Pattern.compile("-*[0-9]+(/[0-9]+|&[0-9]+/[0-9]+)*");
-    public Optional<FractionalExpression> interpret(String input) {
+    public Optional<FractionalExpression> interpret(String input) throws InvalidInputException{
         String[] inputParts = input.split(" ");
-        if(validate(inputParts)){
-            //Operator operator = Operator.valueOf(inputParts[1]);
+        if(validateInput(inputParts)){
             FractionalNumber leftOperand = getFractionNumber(inputParts[0]);
             FractionalNumber rightOperand = getFractionNumber(inputParts[2]);
             return Optional.of(new FractionalExpression(inputParts[1], leftOperand, rightOperand));
+        }else{
+            throw new InvalidInputException();
         }
-        return Optional.empty();
 
     }
 
-    private boolean validate(String[] inputParts){
+    private boolean validateInput(String[] inputParts){
         //return inputParts.length == 0 && Operator.getOperator(inputParts)
         return inputParts.length ==3 && operatorList.contains(inputParts[1]) && pattern.matcher(inputParts[0]).matches()
                 && pattern.matcher(inputParts[2]).matches();

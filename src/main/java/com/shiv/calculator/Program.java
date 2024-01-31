@@ -1,5 +1,6 @@
 package com.shiv.calculator;
 
+import com.shiv.calculator.exception.InvalidInputException;
 import com.shiv.calculator.interpreter.FractionalExpressionInterpreter;
 import com.shiv.calculator.model.FractionalNumber;
 import com.shiv.calculator.service.FractionalCalculator;
@@ -28,6 +29,7 @@ public class Program {
 
     public void launch(){
         boolean continueProgram = true;
+        FractionalCalculator calculator = new FractionalCalculator(new FractionalExpressionInterpreter());
         try (Scanner scanner = new Scanner(System.in)){
             do {
                 System.out.print("\n? ");
@@ -35,25 +37,21 @@ public class Program {
                 if (input.equalsIgnoreCase("exit")) {
                     continueProgram = false;
                 } else {
-                    Optional<FractionalNumber> output = new FractionalCalculator(
-                            new FractionalExpressionInterpreter()).calculate(input);
-                    if(output.isPresent()){
-                        System.out.println("= " + output.get());
-                    }else{
-                        System.out.println("= Invalid Input");
+                    try {
+                        Optional<FractionalNumber> output = calculator.calculate(input);
+                        output.ifPresent(fractionalNumber -> System.out.println("= " + fractionalNumber));
+                    } catch (InvalidInputException ie){
+                        System.out.println("= " + ie.getMessage());
                     }
+
                 }
 
             } while (continueProgram);
         }catch (Exception e){
-           System.out.println("= Invalid Input");
+           System.out.println("= Error while executing code " + e.getMessage());
         } finally {
            this.exit();
         }
-
-
-
-
     }
 
     public void exit(){

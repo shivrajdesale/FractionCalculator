@@ -1,5 +1,6 @@
 package com.shiv.calculator.service;
 
+import com.shiv.calculator.exception.InvalidInputException;
 import com.shiv.calculator.interpreter.FractionalExpressionInterpreter;
 import com.shiv.calculator.model.FractionalExpression;
 import com.shiv.calculator.model.FractionalNumber;
@@ -13,12 +14,12 @@ public class FractionalCalculator {
         this.interpreter = interpreter;
     }
 
-    public Optional<FractionalNumber> calculate(String input){
+    public Optional<FractionalNumber> calculate(String input) throws InvalidInputException {
         return this.interpreter.interpret(input)
                 .map(this::performOperation);
     }
 
-    public FractionalNumber performOperation(FractionalExpression expression){
+    private FractionalNumber performOperation(FractionalExpression expression){
         switch (expression.getOperator()){
             case "+":
                 return this.add(expression.getLeftOperand(), expression.getRightOperand());
