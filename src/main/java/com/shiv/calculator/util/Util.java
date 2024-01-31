@@ -1,5 +1,7 @@
 package com.shiv.calculator.util;
 
+import java.math.BigInteger;
+
 /**
  * public class Util
  * General Util class
@@ -15,15 +17,6 @@ public class Util {
 	 *
 	 */
 	public static long getGCD(long n1, long n2) {
-		long gcd = 1; n1 = Math.abs(n1); n2 = Math.abs(n2);
-		
-		long small = n1 < n2 ? n1 : n2;
-		for(long i = small; i > 1; i--) {
-			if(n1 % i == 0 && n2 % i == 0) {
-				return i;
-			}
-		}
-		
-		return gcd;
+		return BigInteger.valueOf(n1).gcd(BigInteger.valueOf(n2)).longValue();
 	}
 }
