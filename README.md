@@ -21,7 +21,7 @@ Steps to Run
          n is fractional number - right operand. Similar to m
 4. For each input, output will be printed with format "= result"
    where result is fractional number
-5. To exit the program, type "exit" and hit Exnter
+5. To exit the program, type "exit" and hit Enter
 
 
 
