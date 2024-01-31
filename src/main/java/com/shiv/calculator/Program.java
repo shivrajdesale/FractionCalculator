@@ -31,6 +31,9 @@ public class Program {
         boolean continueProgram = true;
         FractionalCalculator calculator = new FractionalCalculator(new FractionalExpressionInterpreter());
         try (Scanner scanner = new Scanner(System.in)){
+            System.out.println("## Calculator ready  ##");
+            System.out.println("## Enter input to perform operation on fractional numbers For ex. 2/3 * 3&4/7 ##");
+            System.out.println("## Enter 'exit' to close program ##");
             do {
                 System.out.print("\n? ");
                 String input = scanner.nextLine().trim();
