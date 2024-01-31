@@ -119,6 +119,20 @@ class FractionCalculatorTest {
     }
 
     @Test
+    public void testCalculate_Multiplication_LargeInput_Success(){
+        //when
+        String input = "123456789/234567890 * 345678901/456789012";
+
+        //action
+        Optional<FractionalNumber> actual = calculator.calculate(input);
+
+        //then
+        assertTrue(actual.isPresent());
+        assertEquals("14225469047502963/35716011573341560", actual.get().toString());
+
+    }
+
+    @Test
     public void testCalculate_throwsException(){
         //when
         String input = "-1/2*1/2";
