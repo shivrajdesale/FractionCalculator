@@ -13,7 +13,7 @@ Steps to build
    i.e. FractionCalculator-1.0.0.jar
 
 Steps to Run
-1. Run command "java -jar FractionCalculator-1.0.01.jar"
+1. Run command "java -jar FractionCalculator-1.0.0.jar"
 2. Cosole will prompt for input
 3. Enter input in the format "m o n" and hit Enter
    where m is fractional number - left operand. For example 5, 2/5, 2&2/5, -1/5 etc.
